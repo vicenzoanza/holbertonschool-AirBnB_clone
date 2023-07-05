@@ -35,8 +35,7 @@ class BaseModel:
 
     def to_dict(self):
         """ returns a dict containing all keys/values of __dict__ """
-        return
-        {
+        return {
                 **self.__dict__,
                 '__class__': self.__class__.__name__,
                 'created_at': self.created_at.isoformat(),
