@@ -26,11 +26,17 @@ class BaseModel:
         self.updated_at = self.created_at
 
     def __str__(self):
+        """ prints str """
         return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
+
     def save(self):
+        """ updates the attribute updated_at with the current datetime """
         self.updated_at = datetime.now()
+
     def to_dict(self):
-        return{
+        """ returns a dict containing all keys/values of __dict__ """
+        return
+        {
                 **self.__dict__,
                 '__class__': self.__class__.__name__,
                 'created_at': self.created_at.isoformat(),
