@@ -3,6 +3,7 @@
 
 import json
 import os
+from models.base_model import BaseModel
 
 
 class FileStorage:
@@ -30,6 +31,7 @@ class FileStorage:
             try:
                 with open(self.__file_path, 'r') as file:
                     objects = json.load(file)
+                    self.__objects = {}
                     for key, value in objects.items():
                         self.__objects[key] = BaseModel(**value)
 
