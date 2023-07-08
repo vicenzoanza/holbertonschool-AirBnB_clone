@@ -29,9 +29,8 @@ class FileStorage:
         if os.path.exists(self.__file_path):
             try:
                 with open(self.__file_path, 'r') as file:
-                    content = json.load(file)
-                    self.__objects = {}
-                    for key, value in content.items():
+                    objects = json.load(file)
+                    for key, value in objects.items():
                         self.__objects[key] = BaseModel(**value)
 
             except FileNotFoundError:
