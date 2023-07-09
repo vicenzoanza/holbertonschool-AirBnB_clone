@@ -127,7 +127,7 @@ class HBNBCommand(cmd.Cmd):
             return
         else:
             instance = storage.all()[o_key]
-            setattr(instance, class_name[2], class_name[3])
+            setattr(instance, class_name[2], class_name[3][1:-1])
             instance.save()
 
         if len(args.split()) < 3:
