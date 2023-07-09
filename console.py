@@ -34,12 +34,12 @@ class HBNBCommand(cmd.Cmd):
         if len(args) == 0:
             print("** class name missing **")
             return
-        # Divide los argumentos y toma el primer elemento
-        class_name = args.split()[0]
-        if class_name not in self.classes:
+        class_name = args.strip()
+        if class_name not in classes:
             print("** class doesn't exist **")
             return
-        instance = self.classes[class_name]()
+        class_objs = globals()[class_name]
+        instance = class_objs()
         instance.save()
         print(instance.id)
 
@@ -49,21 +49,24 @@ class HBNBCommand(cmd.Cmd):
             return
 
         class_name = args.split()[0]
-        if class_name not in self.classes:
+        if class_name not in classes:
             print("** class doesn't exist **")
             return
-        elif len(args.split()) < 2:
+
+        if len(args.split()) < 2:
             print("** instance id missing **")
             return
+
         class_n2 = args.split()[0]
         key = f"{class_n2}.{args.split()[1]}"
-        ins = models.storage.all()
+        ins = storage.all()
 
         if key not in ins:
             print("** no instance found **")
-        else:
-            instance = ins[key]
-            print(instance)
+            return
+
+        instance = ins[key]
+        print(instance)
 
     def do_destroy(self, args):
         if len(args) == 0:
@@ -86,29 +89,28 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
 
     def do_all(self, args):
-        class_name = args.split()[0]
-        if class_name not in self.classes:
-            print("** class doesn't exist **")
-            return
+        class_name = None
 
-        args_split = args.split()
-
-        if len(args_split) == 0:
+        if len(args) == 0:
             objects = storage.all()
             obj = [str(value) for value in objects.values()]
             print(obj)
+        else:
+            class_name = args.split()[0]
+        if class_name not in classes:
+            print("** class doesn't exist **")
+            return
 
-        elif args_split[0] in self.our_classes:
-            objects = storage.all()
-            obj = [str(value) for key, value in objects.items() if args_split[0] in key]
-            print(obj)
+        objects = storage.all()
+        obj = [str(value) for key, value in objects.items() if class_name in key]
+        print(obj)
     def do_update(self, args):
         if len(args) == 0:
             print("** class name missing **")
             return
 
-        class_name = args.split()[0]
-        if class_name not in self.classes:
+        class_name = args.strip()
+        if class_name not in classes:
             print("** class doesn't exist **")
             return
 
