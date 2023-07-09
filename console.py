@@ -106,7 +106,7 @@ class HBNBCommand(cmd.Cmd):
             return
 
         objects = storage.all()
-        obj = [str(value) for key, val in objects.items() if class_name in key]
+        obj = [str(val) for key, val in objects.items() if class_name in key]
         print(obj)
 
     def do_update(self, args):
