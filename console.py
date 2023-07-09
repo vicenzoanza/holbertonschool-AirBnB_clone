@@ -134,10 +134,9 @@ class HBNBCommand(cmd.Cmd):
             instance = storage.all()[o_key]
             if class_name[3][0] == '"' and class_name[3][-1] == '"':
                 setattr(instance, class_name[2], class_name[3][1:-1])
-                instance.save()
             else:
                 setattr(instance, class_name[2], class_name[3])
-                instance.save()
+            storage.save()
 
 
 if __name__ == '__main__':

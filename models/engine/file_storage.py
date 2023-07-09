@@ -3,12 +3,6 @@
 
 import json
 import os
-from models.base_model import BaseModel
-from models.place import Place
-from models.state import State
-from models.city import City
-from models.amenity import Amenity
-from models.review import Review
 
 
 class FileStorage:
@@ -32,13 +26,27 @@ class FileStorage:
             json.dump(obj_dict, file)
 
     def reload(self):
+        from models.base_model import BaseModel
+        from models.place import Place
+        from models.state import State
+        from models.city import City
+        from models.amenity import Amenity
+        from models.review import Review
+        from models.user import User
+
         if os.path.exists(self.__file_path):
             try:
                 with open(self.__file_path, 'r') as file:
                     objects = json.load(file)
-                    self.__objects = {}
+                    classes = {'BaseModel': BaseModel, 'User': User,
+                               'State': State, 'City': City,
+                               'Amenity': Amenity,
+                               'Place': Place, 'Review': Review}
+
                     for key, value in objects.items():
-                        self.__objects[key] = BaseModel(**value)
+                        clase = key.split('.')[0]
+                        if clase in classes.keys():
+                            self.__objects[key] = classes[clase](**value)
 
             except FileNotFoundError:
                 pass
