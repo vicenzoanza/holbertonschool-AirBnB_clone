@@ -10,22 +10,21 @@ import models
 class BaseModel:
     """ Creating BaseModel class """
     def __init__(self, *args, **kwargs):
-        if kwargs != "":
-            if '__class__' in kwargs:
-                del kwargs['__class__']
+
+        date = "%Y-%m-%dT%H:%M:%S.%f"
+        if len(kwargs) > 0:
             for key, value in kwargs.items():
                 if key == 'created_at':
-                    value = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
+                    self.created_at = datetime.strptime(value, date)
                 if key == 'updated_at':
-                    value = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
-                setattr(self, key, value)
-        # Primero convertimos un id unico y lo convertimos en string
-        self.id = str(uuid.uuid4())
-        # Le pasamos el horario actual al crear una instancia
-        self.created_at = datetime.now()
-        # Le pasamos a update_at el horario de created_at
-        self.updated_at = self.created_at
-        models.storage.new(self)
+                    self.updated_at = datetime.strptime(value, date)
+                if key == 'id':
+                    self.id = str(value)
+        else:
+            self.id = str(uuid.uuid4())
+            self.created_at = datetime.now()
+            self.updated_at = datetime.now()
+            models.storage.new(self)
 
     def __str__(self):
         """ prints str """
@@ -38,9 +37,8 @@ class BaseModel:
 
     def to_dict(self):
         """ returns a dict containing all keys/values of __dict__ """
-        return {
-                **self.__dict__,
-                '__class__': self.__class__.__name__,
-                'created_at': self.created_at.isoformat(),
-                'updated_at': self.updated_at.isoformat()
-            }
+        new_dict = dict(self.__dict__)
+        new_dict['__class__'] = self.__class__.__name__
+        new_dict['created_at'] = self.created_at.isoformat()
+        new_dict['updated_at'] = self.updated_at.isoformat()
+        return new_dict
