@@ -74,22 +74,20 @@ class HBNBCommand(cmd.Cmd):
         """ """
         if len(args) == 0:
             print("** class name missing **")
-            return
-        class_name = args.split()[0]
-        if class_name not in self.classes:
+        class_name = args.split()
+        if class_name[0] not in self.classes:
             print("** class doesn't exist **")
             return
-        elif len(args) < 2:
+        elif len(args) == 1:
             print("** instance id missing **")
             return
 
-        idd = args.split()[0]
-        ins = models.storage.get(self.classes[class_name], idd)
-        if ins:
-            ins.delete()
-            models.storage.save()
-        else:
+        o_key = class_name[0] + '.' + class_name[1]
+        if o_key not in storage.all():
             print("** no instance found **")
+        else:
+            del (storage.all()[o_key])
+            storage.save()
 
     def do_all(self, args):
         """ """
@@ -115,22 +113,23 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
 
-        class_name = args.strip()
-        if class_name not in self.classes:
+        class_name = args.split()
+        if class_name[0] not in self.classes:
             print("** class doesn't exist **")
             return
 
-        elif len(args.split()) < 2:
+        elif len(class_name) < 2:
             print("** instance id missing **")
             return
 
-        idd = args.split()[1]
-        ins = models.storage.get(self.classes[class_name], idd)
-        if ins:
-            ins.delete()
-            models.storage.save()
-        else:
+        o_key = class_name[0] + "." + class_name[1]
+        if o_key not in storage.all():
             print("** no instance found **")
+            return
+        else:
+            instance = storage.all()[o_key]
+            setattr(instance, class_name[2], class_name[3])
+            instance.save()
 
         if len(args.split()) < 3:
             print("** attribute name missing **")
@@ -139,9 +138,6 @@ class HBNBCommand(cmd.Cmd):
         if len(args.split()) < 4:
             print("** value missing **")
             return
-
-        setattr(objs[key], args.split()[2], eval(args.split()[3]))
-        storage.all()[key].save()
 
 
 if __name__ == '__main__':
