@@ -127,8 +127,12 @@ class HBNBCommand(cmd.Cmd):
             return
         else:
             instance = storage.all()[o_key]
-            setattr(instance, class_name[2], class_name[3][1:-1])
-            instance.save()
+            if class_name[3][0] == '"' and class_name[3][-1] == '"':
+                setattr(instance, class_name[2], class_name[3][1:-1])
+                instance.save()
+            else:
+                setattr(instance, class_name[2], class_name[3])
+                instance.save()
 
         if len(args.split()) < 3:
             print("** attribute name missing **")
