@@ -116,9 +116,14 @@ class HBNBCommand(cmd.Cmd):
         if class_name[0] not in self.classes:
             print("** class doesn't exist **")
             return
-
         elif len(class_name) < 2:
             print("** instance id missing **")
+            return
+        elif len(class_name) < 3:
+            print("** attribute name missing **")
+            return
+        elif len(class_name) < 4:
+            print("** value missing **")
             return
 
         o_key = class_name[0] + "." + class_name[1]
@@ -133,14 +138,6 @@ class HBNBCommand(cmd.Cmd):
             else:
                 setattr(instance, class_name[2], class_name[3])
                 instance.save()
-
-        if len(args.split()) < 3:
-            print("** attribute name missing **")
-            return
-
-        if len(args.split()) < 4:
-            print("** value missing **")
-            return
 
 
 if __name__ == '__main__':
