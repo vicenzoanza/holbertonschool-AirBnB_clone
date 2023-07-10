@@ -1,4 +1,4 @@
-# <img src="65f4a1dd9c51265f49d0.png" width=25% heigth=25% ></img> <h1 align="center"> AirBnB clone: the console.</h1>
+# <img src="65f4a1dd9c51265f49d0.png" width=100% heigth=100% ></img> <h1 align="center"> AirBnB clone: the console.</h1>
 
 - The hbhn is a project of Holberton School. The objetive is create a clone of the recognized web application AirBnB. The project is separated in three parts. The first part is the console 
 
@@ -55,38 +55,35 @@ In this project, we learned about:
 ## Usage
 ### How to start it?
 - Clone the repository
-- root@c9ba833ac63e:/holbertonschool-AirBnB_clone# ./console.py
+- root@c9ba833ac63e:/holbertonschool-AirBnB_clone# ./console.py <br>
 (hbnb)
 - Now you start the console
 ## Example of usage
 ### How to use it?
 #### Commands
-- Create:
-  Create a new object.
-- Example:
+##### Create:
+  Create a new object. <br>
+  **Example:** <br>
 (hbnb) create BaseModel
 49faff9a-6318-451f-87b6-910505c55907
-
-- Show:
-  Show the object that you select.
-- Example:
+##### Show:
+  Show the object that you select. <br>
+  **Example:** <br>
   (hbnb) show BaseModel 49faff9a-6318-451f-87b6-910505c55907
 [BaseModel] (49faff9a-6318-451f-87b6-910505c55907) {'created_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903293), 'id': '49faff9a-6318-451f-87b6-910505c55907', 'updated_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903300)}
-
-- Destroy:
-  Remove an object.
-- Example:
+##### Destroy:
+  Remove an object. <br>
+  **Example:** <br>
 (hbnb) destroy BaseModel 49faff9a-6318-451f-87b6-910505c55907
-
-- All:
-  Displays all objects of a class.
-- Example:
+##### All:
+  Displays all objects of a class. <br>
+  **Example:** <br>
   (hbnb) all BaseModel
 ["[BaseModel] (2dd6ef5c-467c-4f82-9521-a772ea7d84e9) {'id': '2dd6ef5c-467c-4f82-9521-a772ea7d84e9', 'created_at': datetime.datetime(2017, 10, 2, 3, 11, 23, 639717), 'updated_at': datetime.datetime(2017, 10, 2, 3, 11, 23, 639724)}", "[BaseModel] (49faff9a-6318-451f-87b6-910505c55907) {'first_name': 'Betty', 'id': '49faff9a-6318-451f-87b6-910505c55907', 'created_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903293), 'updated_at': datetime.datetime(2017, 10, 2, 3, 11, 3, 49401)}"]
 
-- Update:
-  Update an object.
-- Example:
+##### Update:
+  Update an object. <br>
+  **Example:** <br>
   (hbnb) update BaseModel 49faff9a-6318-451f-87b6-910505c55907 first_name "Betty"
 
 
