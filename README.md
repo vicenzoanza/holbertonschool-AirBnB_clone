@@ -61,32 +61,32 @@ In this project, we learned about:
 ## Example of usage
 ### How to use it?
 #### Commands
-- Create:
+##### Create:
   Create a new object.
-- Example:
+  Example:
 (hbnb) create BaseModel
 49faff9a-6318-451f-87b6-910505c55907
 
-- Show:
+##### Show:
   Show the object that you select.
-- Example:
+  Example:
   (hbnb) show BaseModel 49faff9a-6318-451f-87b6-910505c55907
 [BaseModel] (49faff9a-6318-451f-87b6-910505c55907) {'created_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903293), 'id': '49faff9a-6318-451f-87b6-910505c55907', 'updated_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903300)}
 
-- Destroy:
+##### Destroy:
   Remove an object.
-- Example:
+  Example:
 (hbnb) destroy BaseModel 49faff9a-6318-451f-87b6-910505c55907
 
-- All:
+##### All:
   Displays all objects of a class.
-- Example:
+  Example:
   (hbnb) all BaseModel
 ["[BaseModel] (2dd6ef5c-467c-4f82-9521-a772ea7d84e9) {'id': '2dd6ef5c-467c-4f82-9521-a772ea7d84e9', 'created_at': datetime.datetime(2017, 10, 2, 3, 11, 23, 639717), 'updated_at': datetime.datetime(2017, 10, 2, 3, 11, 23, 639724)}", "[BaseModel] (49faff9a-6318-451f-87b6-910505c55907) {'first_name': 'Betty', 'id': '49faff9a-6318-451f-87b6-910505c55907', 'created_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903293), 'updated_at': datetime.datetime(2017, 10, 2, 3, 11, 3, 49401)}"]
 
-- Update:
+##### Update:
   Update an object.
-- Example:
+  Example:
   (hbnb) update BaseModel 49faff9a-6318-451f-87b6-910505c55907 first_name "Betty"
 
 
