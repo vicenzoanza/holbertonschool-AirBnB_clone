@@ -1,4 +1,4 @@
-# <img src="65f4a1dd9c51265f49d0.png" width=100% heigth=100% ></img> <h1 align="center"> AirBnB clone: the console.</h1>
+# <img src="img/65f4a1dd9c51265f49d0.png" width=100% heigth=100% ></img> <h1 align="center"> AirBnB clone: the console.</h1>
 
 - The hbhn is a project of Holberton School. The objetive is create a clone of the recognized web application AirBnB. The project is separated in three parts. The first part is the console 
 
