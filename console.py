@@ -90,21 +90,21 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, args):
         """ """
-        class_name = None
+        class_name = args.split()
 
         if len(args) == 0:
             objects = storage.all()
             obj = [str(value) for value in objects.values()]
             print(obj)
-        else:
-            class_name = args.split()[0]
-        if class_name not in self.classes:
-            print("** class doesn't exist **")
             return
 
-        objects = storage.all()
-        obj = [str(val) for key, val in objects.items() if class_name in key]
-        print(obj)
+        elif class_name[0] not in self.classes:
+            print("** class doesn't exist **")
+            return
+        else:
+            objects = storage.all()
+            obj = [str(v) for k, v in objects.items() if class_name[0] in k]
+            print(obj)
 
     def do_update(self, args):
         """ """
