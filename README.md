@@ -55,38 +55,38 @@ In this project, we learned about:
 ## Usage
 ### How to start it?
 - Clone the repository
-- root@c9ba833ac63e:/holbertonschool-AirBnB_clone# ./console.py
+- root@c9ba833ac63e:/holbertonschool-AirBnB_clone# ./console.py <br>
 (hbnb)
 - Now you start the console
 ## Example of usage
 ### How to use it?
 #### Commands
 ##### Create:
-  Create a new object. <br>
-  Example: <br>
+  Create a new object.
+  **Example:** <br>
 (hbnb) create BaseModel
 49faff9a-6318-451f-87b6-910505c55907
 
 ##### Show:
-  Show the object that you select. <br>
-  Example: <br>
+  Show the object that you select.
+  **Example:** <br>
   (hbnb) show BaseModel 49faff9a-6318-451f-87b6-910505c55907
 [BaseModel] (49faff9a-6318-451f-87b6-910505c55907) {'created_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903293), 'id': '49faff9a-6318-451f-87b6-910505c55907', 'updated_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903300)}
 
 ##### Destroy:
-  Remove an object. <br>
-  Example: <br>
+  Remove an object.
+  **Example:** <br>
 (hbnb) destroy BaseModel 49faff9a-6318-451f-87b6-910505c55907
 
 ##### All:
   Displays all objects of a class. <br>
-  Example: <br>
+  **Example:** <br>
   (hbnb) all BaseModel
 ["[BaseModel] (2dd6ef5c-467c-4f82-9521-a772ea7d84e9) {'id': '2dd6ef5c-467c-4f82-9521-a772ea7d84e9', 'created_at': datetime.datetime(2017, 10, 2, 3, 11, 23, 639717), 'updated_at': datetime.datetime(2017, 10, 2, 3, 11, 23, 639724)}", "[BaseModel] (49faff9a-6318-451f-87b6-910505c55907) {'first_name': 'Betty', 'id': '49faff9a-6318-451f-87b6-910505c55907', 'created_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903293), 'updated_at': datetime.datetime(2017, 10, 2, 3, 11, 3, 49401)}"]
 
 ##### Update:
-  Update an object. <br>
-  Example: <br>
+  Update an object.
+  **Example:** <br>
   (hbnb) update BaseModel 49faff9a-6318-451f-87b6-910505c55907 first_name "Betty"
 
 
